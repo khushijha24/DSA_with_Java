@@ -2,6 +2,24 @@ package stack;
 
 public class Main {
 
+
+    public static void sortStack(Stack<Integer> s){
+        Stack <Integer> additionalStack = new Stack<> ();
+
+        while(!s.isEmpty()){
+            int temp = s.pop();
+
+            while(!additionalStack.isEmpty() && temp<additionalStack.peek()){
+                s.push(additionalStack.pop());
+            }
+
+            additionalStack.push(temp);
+        }
+
+        while(!additionalStack.isEmpty()){
+            s.push(additionalStack.pop());
+        }
+    }
     public static String reverseString (String string){
 
         Stack<Character> stack = new Stack<>();
@@ -39,11 +57,11 @@ public class Main {
     public static void main(String []args){
 
         // reverse String
-//        System.out.println("Test 1: Normal Word");
-//        System.out.println("Input: 'hello'");
-//        System.out.println("Expected: 'olleh'");
-//        System.out.println("Actual: '" + reverseString("hello") + "'");
-//        System.out.println();
+        System.out.println("Test 1: Normal Word");
+        System.out.println("Input: 'hello'");
+        System.out.println("Expected: 'olleh'");
+        System.out.println("Actual: '" + reverseString("hello") + "'");
+        System.out.println();
 
         // balanced parenthesis
         System.out.println("Test 2: Single Pair");
